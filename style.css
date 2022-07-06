@@ -10,5 +10,10 @@ body {
 main article {
     font-family: serif;
     border-left: solid;
+    border-color: lightgrey;
     padding-left: 8px;
+}
+
+.post_header {
+    background-color: lightgrey;
 }
