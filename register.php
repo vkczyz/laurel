@@ -1,8 +1,8 @@
 <?php include "templates/header.html"; ?>
 
-<h2>Login</h2>
+<h2>Register</h2>
 
-<form action="/responses/login.php" method="post">
+<form action="/responses/register.php" method="post">
   <label for="user">Username:</label>
   <input type="text" id="user" name="user"/>
   <br/>
@@ -11,9 +11,11 @@
   <input type="password" id="pass" name="pass"/>
   <br/>
 
+  <input type="checkbox" id="agree" name="agree"/>
+  <label for="agree">I agree to be on my best behaviour</label>
+  <br/>
+
   <input type="submit" value="Submit"/>
 </form>
-
-<a href="/register.php">Register</p>
 
 <?php include "templates/footer.html"; ?>

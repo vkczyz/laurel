@@ -1,6 +1,6 @@
 <?php include "templates/header.html"; ?>
 
-<p>Replying to post <?php echo $id; ?>:</p>
+<p>Replying to post <?php echo $_GET["id"]; ?>:</p>
 
 <blockquote>
 <?php
