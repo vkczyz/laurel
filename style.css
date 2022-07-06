@@ -18,6 +18,11 @@ article p {
     background-color: lightgrey;
 }
 
+textarea {
+    width: 100%;
+    height: 60vh;
+}
+
 @media screen and (min-width: 600px) {
     body {
         width: 600px;
