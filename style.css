@@ -2,11 +2,6 @@
     font-family: sans-serif;
 }
 
-body {
-    width: 600px;
-    margin: 0 auto;
-}
-
 article {
     border-left: solid;
     border-color: lightgrey;
@@ -21,4 +16,11 @@ article p {
     display: flex;
     justify-content: space-between;
     background-color: lightgrey;
+}
+
+@media screen and (min-width: 600px) {
+    body {
+        width: 600px;
+        margin: 0 auto;
+    }
 }
