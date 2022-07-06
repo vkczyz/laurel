@@ -1,0 +1,14 @@
+:root {
+    font-family: sans-serif;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+}
+
+main article {
+    font-family: serif;
+    border-left: solid;
+    padding-left: 8px;
+}
