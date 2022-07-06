@@ -7,17 +7,18 @@ body {
     margin: 0 auto;
 }
 
-main article {
-    font-family: serif;
+article {
     border-left: solid;
     border-color: lightgrey;
     padding-left: 8px;
 }
 
-.post_header {
-    background-color: lightgrey;
+article p {
+    font-family: serif;
 }
 
-.post_header .reply_button {
-    float: right;
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgrey;
 }

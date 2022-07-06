@@ -7,13 +7,18 @@
   $replies = rand(0,2);
 ?>
 
-<article id="post_<?php echo $id; ?>">
+<article id="<?php echo $id; ?>">
   <details open="true">
     <summary class="post_header">
-      <a class="author" href="/users.php?id=<?php echo $author; ?>"><?php echo $author ?></a>
-      <a class="upvotes">👍 <?php echo $upvotes ?></a>
-      <a class="downvotes">👎 <?php echo $downvotes ?></a>
-      <a class="reply_button" href="/reply.php?id=<?php echo $id; ?>">Reply</a>
+      <div class="left">
+        <a href="/users.php?id=<?php echo $author; ?>"><?php echo $author ?></a>
+        <a>👍 <?php echo $upvotes ?></a>
+        <a>👎 <?php echo $downvotes ?></a>
+      </div>
+      <div class="right">
+        <a href="#<?php echo $id; ?>">Link</a>
+        <a href="/reply.php?id=<?php echo $id; ?>">Reply</a>
+      </div>
     </summary>
     <?php
       for ($x = 0; $x < $paragraphs; $x++) {
