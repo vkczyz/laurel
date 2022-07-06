@@ -17,15 +17,15 @@
     </summary>
     <?php
       for ($x = 0; $x < $paragraphs; $x++) {
-        echo file_get_contents("lorem.html");
+        echo file_get_contents("templates/lorem.html");
       }
     ?>
     <?php
       if ($replies == 1) {
-        include "post.php";
+        include "templates/post.php";
       } elseif ($replies == 2) {
-        include "post.php";
-        include "post.php";
+        include "templates/post.php";
+        include "templates/post.php";
       }
     ?>
   </details>
