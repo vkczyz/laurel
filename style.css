@@ -1,10 +1,40 @@
-:root {
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #fff;
+        --fg: #333;
+        --accent: lightgrey;
+        --link-normal: #00e;
+        --link-visited #529;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #111;
+        --fg: #eee;
+        --accent: #222;
+        --link-normal: #3af;
+        --link-visited #b8f;
+    }
+}
+
+a:link {
+    color: var(--link-normal);
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
     font-family: sans-serif;
 }
 
 article {
     border-left: solid;
-    border-color: lightgrey;
+    border-color: var(--accent);
     padding-left: 8px;
 }
 
@@ -15,7 +45,7 @@ article p {
 .post_header {
     display: flex;
     justify-content: space-between;
-    background-color: lightgrey;
+    background-color: var(--accent);
 }
 
 textarea {
