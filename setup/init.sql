@@ -2,13 +2,13 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE users (
 	username TEXT PRIMARY KEY,
-	hash BLOB NOT NULL,
-	salt BLOB NOT NULL,
-	register_date INTEGER
+	password BLOB NOT NULL,
+	register_date INTEGER NOT NULL
 );
 
 CREATE TABLE posts (
 	id INTEGER PRIMARY KEY,
+	message TEXT NOT NULL,
 	author INTEGER NOT NULL,
 	parent INTEGER,
 	publish_date INTEGER NOT NULL,
