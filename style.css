@@ -17,3 +17,7 @@ main article {
 .post_header {
     background-color: lightgrey;
 }
+
+.post_header .reply_button {
+    float: right;
+}

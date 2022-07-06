@@ -10,8 +10,8 @@
     <header>
       <h1>Laurel</h1>
       <nav>
-        <a href="/login">Login</a>
-        <a href="/rules">Rules</a>
+        <a href="/login.php">Login</a>
+        <a href="/rules.php">Rules</a>
       </nav>
     </header>
     <main>
