@@ -15,8 +15,8 @@
         echo '<summary class="post_header">';
           echo '<div>';
             echo '<a href="/users.php?id=' . $author . '">' . $author . '</a>';
-            echo '<button>👍 ' . $upvotes . '</button>';
-            echo '<button>👎 ' . $downvotes . '</button>';
+            echo '<button class="upvote">👍 ' . $upvotes . '</button>';
+            echo '<button class="downvote">👎 ' . $downvotes . '</button>';
           echo '</div>';
           echo '<div>';
             echo '<a href="#' . $id . '">Link</a>';
