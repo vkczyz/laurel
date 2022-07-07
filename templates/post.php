@@ -33,7 +33,7 @@
         echo $Parsedown->text($message);
 
         # Display replies
-        $stmt = $db->prepare("SELECT id FROM posts WHERE parent = :id");
+        $stmt = $db->prepare("SELECT id FROM posts WHERE parent = :id ORDER BY publish_date DESC");
         $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
         $result = $stmt->execute();
 
