@@ -14,7 +14,7 @@
       echo '<details open="true">';
         echo '<summary class="post_header">';
           echo '<div>';
-            echo '<a href="/users.php?id="' . $author . '">' . $author . '</a>';
+            echo '<a href="/users.php?id=' . $author . '">' . $author . '</a>';
             echo '<a>👍 ' . $upvotes . '</a>';
             echo '<a>👎 ' . $downvotes . '</a>';
           echo '</div>';
