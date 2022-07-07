@@ -1,37 +1,46 @@
 <?php
-  $id = rand(0,65536);
-  $author = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"),0,8); 
-  $upvotes = rand(0,10);
-  $downvotes = rand(0,10);
-  $paragraphs = rand(1,2);
-  $replies = rand(0,2);
-?>
+  function post($id) {
+    $db = new SQLite3("data.db");
+    $stmt = $db->prepare("SELECT author, message FROM posts WHERE id = :id");
+    $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
+    $result = $stmt->execute()->fetchArray();
 
-<article id="<?php echo $id; ?>">
-  <details open="true">
-    <summary class="post_header">
-      <div class="left">
-        <a href="/users.php?id=<?php echo $author; ?>"><?php echo $author ?></a>
-        <a>👍 <?php echo $upvotes ?></a>
-        <a>👎 <?php echo $downvotes ?></a>
-      </div>
-      <div class="right">
-        <a href="#<?php echo $id; ?>">Link</a>
-        <a href="/post.php?id=<?php echo $id; ?>">Reply</a>
-      </div>
-    </summary>
-    <?php
-      for ($x = 0; $x < $paragraphs; $x++) {
-        echo file_get_contents("templates/lorem.html");
-      }
-    ?>
-    <?php
-      if ($replies == 1) {
-        include "templates/post.php";
-      } elseif ($replies == 2) {
-        include "templates/post.php";
-        include "templates/post.php";
-      }
-    ?>
-  </details>
-</article>
+    $author = $result["author"];
+    $message = $result["message"];
+    $upvotes = 0;
+    $downvotes = 0;
+
+    echo '<article id="' . $id . '">';
+      echo '<details open="true">';
+        echo '<summary class="post_header">';
+          echo '<div>';
+            echo '<a href="/users.php?id="' . $author . '">' . $author . '</a>';
+            echo '<a>👍 ' . $upvotes . '</a>';
+            echo '<a>👎 ' . $downvotes . '</a>';
+          echo '</div>';
+          echo '<div>';
+            echo '<a href="#' . $id . '">Link</a>';
+            echo '<a href="/post.php?id=' . $id. '">Reply</a>';
+          echo '</div>';
+        echo '</summary>';
+
+        # Display user message
+        $paragraphs = explode("\n", $message);
+        foreach ($paragraphs as $p) {
+          echo '<p>' . $p . '</p>';
+        }
+
+        # Display replies
+        $stmt = $db->prepare("SELECT id FROM posts WHERE parent = :id");
+        $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
+        $result = $stmt->execute();
+
+        while ($data = $result->fetchArray()) {
+          $child = $data["id"];
+          post($child);
+        }
+
+      echo '</details>';
+    echo '</article>';
+  }
+?>
