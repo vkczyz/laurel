@@ -1,5 +1,10 @@
 <?php
+
   function post($id) {
+    include_once "parsedown/Parsedown.php";
+    $Parsedown = new Parsedown();
+    $Parsedown->setSafeMode(true);
+
     $db = new SQLite3("data.db");
     $stmt = $db->prepare("SELECT author, message FROM posts WHERE id = :id");
     $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
@@ -25,10 +30,7 @@
         echo '</summary>';
 
         # Display user message
-        $paragraphs = explode("\n", $message);
-        foreach ($paragraphs as $p) {
-          echo '<p>' . $p . '</p>';
-        }
+        echo $Parsedown->text($message);
 
         # Display replies
         $stmt = $db->prepare("SELECT id FROM posts WHERE parent = :id");
