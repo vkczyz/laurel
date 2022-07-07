@@ -38,7 +38,7 @@ article {
     padding-left: 8px;
 }
 
-article p {
+article p, blockquote {
     font-family: serif;
 }
 

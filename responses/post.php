@@ -19,7 +19,7 @@
   $stmt->execute();
 
   if ($parent) {
-    header("Location: /index.php?id=" . $parent);
+    header("Location: /index.php#" . $parent);
     die();
   } else {
     header("Location: /index.php");

@@ -1,6 +1,8 @@
 <?php session_start(); ?>
 <?php include "templates/header.html"; ?>
 
+<h2>Post</h2>
+
 <?php
 if (!isset($_SESSION['user'])) {
   header("Location: /login.php");
@@ -13,8 +15,19 @@ if ($parent) {
   echo "<p>Replying to:";
 
   echo "<blockquote>";
-  echo file_get_contents("templates/lorem.html");
-  echo file_get_contents("templates/lorem.html");
+
+  $db = new SQLite3("data.db");
+  $stmt = $db->prepare("SELECT message FROM posts WHERE id = :id");
+  $stmt->bindValue(":id", $parent, SQLITE3_INTEGER);
+  $result = $stmt->execute()->fetchArray();
+  $message = $result["message"];
+
+  # Display user message
+  $paragraphs = explode("\n", $message);
+  foreach ($paragraphs as $p) {
+    echo '<p>' . $p . '</p>';
+  }
+
   echo "</blockquote>";
 }
 ?>
