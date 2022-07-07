@@ -1,4 +1,4 @@
-<?php include "templates/header.html"; ?>
+<?php include "templates/header.php"; ?>
 
 <h2>Login</h2>
 

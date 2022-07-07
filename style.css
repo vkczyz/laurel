@@ -51,7 +51,7 @@ article p, blockquote {
     background-color: var(--accent);
 }
 
-.post_header div > * {
+.post_header div > *, nav div > * {
     margin: 2px;
 }
 

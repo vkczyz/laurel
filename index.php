@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php include "templates/header.html"; ?>
+<?php include "templates/header.php"; ?>
 <?php include "templates/post.php"; ?>
 
 <p>Welcome to the Laurel forum.</p>

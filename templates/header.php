@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>    
@@ -16,8 +18,15 @@
           <a href="/rules.php">Rules</a>
         </div>
         <div class="right">
-          <a href="/responses/logout.php">Log out</a>
-          <a href="/login.php">Login</a>
+          <?php
+            if (isset($_SESSION['user'])) {
+              $user = $_SESSION['user'];
+              echo '<a href="/responses/logout.php">Log out</a>';
+              echo '<a href="/users.php?id=' . $user . '">' . $user . '</a>';
+            } else {
+              echo '<a href="/login.php">Login</a>';
+            }
+          ?>
         </div>
       </nav>
     </header>
