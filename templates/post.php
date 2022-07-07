@@ -17,7 +17,7 @@
       </div>
       <div class="right">
         <a href="#<?php echo $id; ?>">Link</a>
-        <a href="/reply.php?id=<?php echo $id; ?>">Reply</a>
+        <a href="/post.php?id=<?php echo $id; ?>">Reply</a>
       </div>
     </summary>
     <?php

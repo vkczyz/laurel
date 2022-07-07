@@ -42,9 +42,12 @@ article p {
     font-family: serif;
 }
 
-.post_header {
+.post_header, nav {
     display: flex;
     justify-content: space-between;
+}
+
+.post_header {
     background-color: var(--accent);
 }
 

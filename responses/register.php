@@ -1,4 +1,11 @@
 <?php
+  $agree = $_POST['agree'];
+
+  if (!$agree) {
+    header("Location: /register.php");
+    die();
+  }
+
   $user = $_POST['user'];
   $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
