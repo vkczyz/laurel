@@ -42,6 +42,10 @@ article p, blockquote {
     font-family: serif;
 }
 
+pre {
+    overflow: scroll;
+}
+
 .post_header, nav {
     display: flex;
     justify-content: space-between;
