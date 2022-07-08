@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php include "templates/header.php"; ?>
 
 <h2>Post</h2>
