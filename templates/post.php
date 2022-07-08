@@ -22,17 +22,17 @@
     $downvotes = $stmt->execute()->fetchArray()[0];
 
     echo '<article id="' . $id . '">';
-      echo '<details open="true">';
+      echo '<details open>';
         echo '<summary class="post_header">';
-          echo '<div>';
+          echo '<span>';
             echo '<a href="/users.php?id=' . $author . '">' . $author . '</a>';
             echo '<form class="upvote" action="/responses/upvote.php?id=' . $id . '" method="post"><button type="submit">👍 ' . $upvotes . '</button></form>';
             echo '<form class="downvote" action="/responses/downvote.php?id=' . $id . '" method="post"><button type="submit">👎 ' . $downvotes . '</button></form>';
-          echo '</div>';
-          echo '<div>';
+          echo '</span>';
+          echo '<span>';
             echo '<a href="#' . $id . '">Link</a>';
             echo '<a href="/post.php?id=' . $id. '">Reply</a>';
-          echo '</div>';
+          echo '</span>';
         echo '</summary>';
 
         # Display user message

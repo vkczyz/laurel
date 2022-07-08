@@ -55,7 +55,7 @@ pre {
     background-color: var(--accent);
 }
 
-.post_header div > *, nav div > * {
+.post_header span > *, nav span > * {
     margin: 2px;
 }
 
