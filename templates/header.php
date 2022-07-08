@@ -20,8 +20,10 @@
           <?php
             if (isset($_SESSION['user'])) {
               $user = $_SESSION['user'];
-              echo '<a href="/responses/logout.php">Log out</a>';
-              echo '<a href="/users.php?id=' . $user . '">' . $user . '</a>';
+          ?>
+              <a href="/responses/logout.php">Log out</a>
+              <a href="/users.php?id=<?php echo $user; ?>"><?php  echo $user; ?></a>
+          <?php
             } else {
               echo '<a href="/login.php">Login</a>';
             }
