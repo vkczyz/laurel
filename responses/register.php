@@ -7,7 +7,15 @@
   }
 
   $user = $_POST['user'];
-  $hash = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+  $pass = $_POST['pass'];
+  $pass2 = $_POST['pass2'];
+
+  if ($pass != $pass2) {
+    header("Location: /register.php");
+    die();
+  }
+
+  $hash = password_hash($pass, PASSWORD_DEFAULT);
 
   $db = new SQLite3("../data.db");
   $stmt = $db->prepare("INSERT INTO users (username, password, register_date) VALUES (:username, :password, :register_date)");

@@ -11,6 +11,10 @@
   <input type="password" id="pass" name="pass"/>
   <br/>
 
+  <label for="password">Confirm password:</label>
+  <input type="password" id="pass2" name="pass2"/>
+  <br/>
+
   <input type="checkbox" id="agree" name="agree"/>
   <label for="agree">I agree to be on my best behaviour</label>
   <br/>
