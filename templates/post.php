@@ -23,7 +23,7 @@
 
     echo '<article id="' . $id . '">';
       echo '<details open>';
-        echo '<summary class="post_header">';
+        echo '<summary class="heading">';
           echo '<span>';
             echo '<a href="/users.php?id=' . $author . '">' . $author . '</a>';
             echo '<form class="upvote" action="/responses/upvote.php?id=' . $id . '" method="post"><button type="submit">👍 ' . $upvotes . '</button></form>';
@@ -35,8 +35,10 @@
           echo '</span>';
         echo '</summary>';
 
-        # Display user message
-        echo $Parsedown->text($message);
+        echo '<div class="message">';
+          # Display user message
+          echo $Parsedown->text($message);
+        echo '</div>';
 
         # Display replies
         $stmt = $db->prepare("SELECT id FROM posts WHERE parent = :id ORDER BY publish_date DESC");

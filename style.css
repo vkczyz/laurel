@@ -38,7 +38,7 @@ article {
     padding-left: 8px;
 }
 
-article p, ul, ol, blockquote {
+.message, blockquote {
     font-family: serif;
 }
 
@@ -50,18 +50,18 @@ img {
     max-width: 100%;
 }
 
-.post_header, nav {
+nav, article .heading {
     display: flex;
     justify-content: space-between;
 }
 
-.post_header {
+.heading {
     background-color: var(--accent);
 }
 
 nav a,
-.post_header a,
-.post_header button {
+article .heading a,
+article .heading button {
     margin: auto 2px;
 }
 
