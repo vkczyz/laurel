@@ -55,8 +55,10 @@ pre {
     background-color: var(--accent);
 }
 
-.post_header span > *, nav span > * {
-    margin: 2px;
+nav a,
+.post_header a,
+.post_header button {
+    margin: auto 2px;
 }
 
 .upvote, .downvote {
