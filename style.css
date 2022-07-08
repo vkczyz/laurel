@@ -55,6 +55,10 @@ article p, blockquote {
     margin: 2px;
 }
 
+.upvote, .downvote {
+    display: inline;
+}
+
 textarea {
     width: 100%;
     height: 30vh;

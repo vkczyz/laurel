@@ -1,27 +1,33 @@
 <?php
-
   function post($id) {
     include_once "parsedown/Parsedown.php";
     $Parsedown = new Parsedown();
     $Parsedown->setSafeMode(true);
 
     $db = new SQLite3("data.db");
-    $stmt = $db->prepare("SELECT author, message FROM posts WHERE id = :id");
-    $stmt->bindValue(":id", $id, SQLITE3_INTEGER);
+
+    $stmt = $db->prepare("SELECT author, message FROM posts WHERE id = :post");
+    $stmt->bindValue(":post", $id, SQLITE3_INTEGER);
     $result = $stmt->execute()->fetchArray();
 
     $author = $result["author"];
     $message = $result["message"];
-    $upvotes = 0;
-    $downvotes = 0;
+
+    $stmt = $db->prepare("SELECT COUNT(*) FROM interaction WHERE post = :post AND sentiment = 1");
+    $stmt->bindValue(":post", $id, SQLITE3_INTEGER);
+    $upvotes = $stmt->execute()->fetchArray()[0];
+
+    $stmt = $db->prepare("SELECT COUNT(*) FROM interaction WHERE post = :post AND sentiment = -1");
+    $stmt->bindValue(":post", $id, SQLITE3_INTEGER);
+    $downvotes = $stmt->execute()->fetchArray()[0];
 
     echo '<article id="' . $id . '">';
       echo '<details open="true">';
         echo '<summary class="post_header">';
           echo '<div>';
             echo '<a href="/users.php?id=' . $author . '">' . $author . '</a>';
-            echo '<button class="upvote">👍 ' . $upvotes . '</button>';
-            echo '<button class="downvote">👎 ' . $downvotes . '</button>';
+            echo '<form class="upvote" action="/responses/upvote.php?id=' . $id . '" method="post"><button type="submit">👍 ' . $upvotes . '</button></form>';
+            echo '<form class="downvote" action="/responses/downvote.php?id=' . $id . '" method="post"><button type="submit">👎 ' . $downvotes . '</button></form>';
           echo '</div>';
           echo '<div>';
             echo '<a href="#' . $id . '">Link</a>';
