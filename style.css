@@ -38,12 +38,16 @@ article {
     padding-left: 8px;
 }
 
-article p, blockquote {
+article p, ul, ol, blockquote {
     font-family: serif;
 }
 
 pre {
     overflow: scroll;
+}
+
+img {
+    max-width: 100%;
 }
 
 .post_header, nav {
