@@ -57,6 +57,7 @@ nav, article .heading {
 
 .heading {
     background-color: var(--accent);
+    margin: 1px;
 }
 
 nav a,
