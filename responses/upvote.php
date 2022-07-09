@@ -43,6 +43,6 @@
     $stmt->execute();
   }
 
-  header("Location: /index.php#" . $post);
+  header("Location: /index.php?thread=" . $post);
   die();
 ?>
