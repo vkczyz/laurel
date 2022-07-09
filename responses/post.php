@@ -10,6 +10,11 @@
   $message = $_POST['message'];
   $parent = $_POST['parent'];
 
+  if (strlen($message) > 17000)  {
+    header("Location: /index.php");
+    die();
+  }
+
   $db = new SQLite3("../data.db");
   $stmt = $db->prepare("INSERT INTO posts (author, message, parent, publish_date) VALUES (:author, :message, :parent, :publish_date)");
   $stmt->bindValue(':author', $user, SQLITE3_TEXT);

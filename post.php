@@ -33,7 +33,7 @@ if ($parent) {
 
 <form action="/responses/post.php" method="post">
   <label for="message">Message:</label>
-  <textarea id="message" name="message"></textarea>
+  <textarea id="message" name="message" maxlength="16384"></textarea>
   <input type="hidden" id="parent" name="parent" value="<?php echo $parent; ?>"/>
   <input type="submit" value="Submit"/>
 </form>
