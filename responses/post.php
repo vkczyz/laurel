@@ -24,7 +24,7 @@
   $stmt->execute();
 
   if ($parent) {
-    header("Location: /index.php#" . $parent);
+    header("Location: /index.php?thread=" . $parent);
     die();
   } else {
     header("Location: /index.php");

@@ -30,7 +30,7 @@
             echo '<form class="downvote" action="/responses/downvote.php?id=' . $id . '" method="post"><button type="submit">👎 ' . $downvotes . '</button></form>';
           echo '</span>';
           echo '<span>';
-            echo '<a href="#' . $id . '">Link</a>';
+            echo '<a href="/index.php?thread=' . $id . '">Link</a>';
             echo '<a href="/post.php?id=' . $id. '">Reply</a>';
           echo '</span>';
         echo '</summary>';
