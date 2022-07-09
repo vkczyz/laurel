@@ -55,6 +55,10 @@ nav, article .heading {
     justify-content: space-between;
 }
 
+.posts, footer {
+    margin: 16px auto;
+}
+
 .heading {
     background-color: var(--accent);
     margin: 1px;

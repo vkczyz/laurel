@@ -13,6 +13,7 @@
   <a href="/index.php?page=<?php echo ($page + 1); ?>">Next ➤</a>
 </nav>
 
+<div class="posts">
 <?php
   $db = new SQLite3("data.db");
   $stmt = $db->prepare("SELECT id FROM posts WHERE parent = 0 ORDER BY publish_date DESC LIMIT :limit OFFSET :offset");
@@ -25,6 +26,7 @@
     post($id);
   }
 ?>
+</div>
 
 <nav>
   <a <?php
