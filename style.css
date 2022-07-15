@@ -26,6 +26,13 @@ a:visited {
     color: var(--link-visited);
 }
 
+header a:link,
+header a:visited,
+footer a:link,
+footer a:visited {
+    color: var(--fg);
+}
+
 body {
     background-color: var(--bg);
     color: var(--fg);
